@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  background-image: linear-gradient(to right, #f7971e, #ffd200);
+}
+
+.wrapper {
+  margin: 5rem;
+  text-align: center;
+
+  &__btn {
+    padding: 1rem 6rem;
+    border-radius: 100px;
+    outline: none;
+    border: none;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

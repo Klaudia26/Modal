@@ -1,0 +1,100 @@
+.dimmer {
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .modalBody {
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    position: absolute;
+    background-image: linear-gradient(to right, #f7971e, #ffd200);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .modalClose {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .modalContent {
+    padding: 2rem;
+  }
+
+  .modalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .field {
+      position: relative;
+    }
+
+    input {
+      margin-bottom: 2rem;
+      padding: 0.3rem;
+      width: 25rem;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid white;
+      color: #fff;
+      font-size: 1.7rem;
+      &::placeholder {
+        color: #fff;
+      }
+    }
+    label {
+      position: absolute;
+      top: 0rem;
+      left: 0;
+      transition: all ease-out 0.2s;
+    }
+
+    input:focus + label {
+      top: -1.5rem;
+      font-size: 1rem;
+    }
+
+    input:not(:placeholder-shown) + label {
+      top: -1.5rem;
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 0.8rem 5rem;
+      border-radius: 100px;
+      font-size: 1.3rem;
+      position: absolute;
+      bottom: 25px;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      outline: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .usersList {
+    border: 1px solid orangered;
+    padding: 1.5rem;
+    width: 20rem;
+  }
+}

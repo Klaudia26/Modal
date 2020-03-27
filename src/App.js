@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './component/Modal/Modal';
+import './App.scss';
 
 class App extends Component {
   state = {
@@ -7,6 +8,7 @@ class App extends Component {
     isUserModal: false,
     name: '',
     surname: '',
+    email: '',
     users: [],
   };
 
@@ -33,30 +35,51 @@ class App extends Component {
     const user = {
       name: this.state.name,
       surname: this.state.surname,
+      email: this.state.email,
     };
     this.setState({
       users: this.state.users.concat(user),
       name: '',
       surname: '',
+      email: '',
     });
+    this.closeModal('isLoginModal');
   };
 
   renderSignUp = () => {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          onChange={this.handleChange}
-          value={this.state.name}
-          name="name"
-          placeholder="Name"
-        />
-        <input
-          onChange={this.handleChange}
-          value={this.state.surname}
-          name="surname"
-          placeholder="Surname"
-        />
-        <button>Add</button>
+      <form onSubmit={this.handleSubmit} className="modalForm">
+        <div className="field">
+          <input
+            onChange={this.handleChange}
+            value={this.state.name}
+            name="name"
+            placeholder=" "
+            id="name"
+          />
+          <label htmlFor="name">Name</label>
+        </div>
+        <div className="field">
+          <input
+            onChange={this.handleChange}
+            value={this.state.surname}
+            name="surname"
+            placeholder=" "
+            id="surname"
+          />
+          <label htmlFor="surname">Surname</label>
+        </div>
+        <div className="field">
+          <input
+            onChange={this.handleChange}
+            value={this.state.email}
+            name="email"
+            placeholder=" "
+            id="email"
+          />
+          <label htmlFor="email">Email</label>
+        </div>
+        <button className="btn">Submit</button>
       </form>
     );
   };
@@ -64,9 +87,10 @@ class App extends Component {
   listOfUsers = () => {
     const content = this.state.users.map((user) => {
       return (
-        <div>
+        <div className="usersList">
           <div>{user.name}</div>
           <div>{user.surname}</div>
+          <div>{user.email}</div>
         </div>
       );
     });
@@ -77,11 +101,19 @@ class App extends Component {
   render() {
     return (
       <>
-        <div>
-          <button id="isLoginModal" onClick={this.openModal}>
+        <div className="wrapper">
+          <button
+            id="isLoginModal"
+            onClick={this.openModal}
+            className="wrapper__btn"
+          >
             Sign up
           </button>
-          <button id="isUserModal" onClick={this.openModal}>
+          <button
+            id="isUserModal"
+            onClick={this.openModal}
+            className="wrapper__btn"
+          >
             Users
           </button>
           {this.state.isLoginModal && (
